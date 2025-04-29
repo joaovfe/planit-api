@@ -7,12 +7,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ApiApplication {
 	public static void main(String[] args) {
-		Dotenv dotenv = Dotenv.load();
 
-		dotenv.entries().forEach(entry -> {
-			System.setProperty(entry.getKey(), entry.getValue());
-		});
+		if (isLocalEnvironment()) {
+			Dotenv dotenv = Dotenv.configure()
+					.ignoreIfMissing()
+					.load();
+
+			dotenv.entries().forEach(entry ->
+					System.setProperty(entry.getKey(), entry.getValue())
+			);
+		}
 
 		SpringApplication.run(ApiApplication.class, args);
+	}
+
+	private static boolean isLocalEnvironment() {
+		String env = System.getenv("ENV");
+		return env == null || env.equalsIgnoreCase("local");
 	}
 }
