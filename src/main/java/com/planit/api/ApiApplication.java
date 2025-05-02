@@ -7,16 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ApiApplication {
 	public static void main(String[] args) {
-
-		System.out.println("JDBC URL: " + System.getenv("DATABASE_URL"));
-		System.out.println("JDBC URL: " + System.getenv("DATABASE_USERNAME"));
-		System.out.println("JDBC URL: " + System.getenv("DATABASE_PASSWORD"));
-		System.out.println("JDBC URL: " + System.getenv("ENV"));
-
-
 		if (isLocalEnvironment()) {
 			Dotenv dotenv = Dotenv.configure()
-					.ignoreIfMissing()
+					.ignoreIfMissing() 	
 					.load();
 
 			dotenv.entries().forEach(entry ->
