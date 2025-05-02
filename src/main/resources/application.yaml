@@ -14,4 +14,4 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   application:
-    name: planit-api
+    name: api
