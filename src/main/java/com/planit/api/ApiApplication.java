@@ -7,10 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ApiApplication {
 	public static void main(String[] args) {
-
 		if (isLocalEnvironment()) {
 			Dotenv dotenv = Dotenv.configure()
-					.ignoreIfMissing()
+					.ignoreIfMissing() 	
 					.load();
 
 			dotenv.entries().forEach(entry ->
