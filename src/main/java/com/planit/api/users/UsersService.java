@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 @Service
 public class UsersService {
     @Autowired
-    private UserRepository usuarioRepository;
+    private UserRepository userRepository;
 
         public List<GetUsersDto> listarUsuarios() {
-        List<Users> users = usuarioRepository.findAll();
+        List<Users> users = userRepository.findAll();
 
         return users.stream().map(user -> new GetUsersDto(
                 user.getId(),
@@ -23,5 +23,17 @@ public class UsersService {
                 user.getEmail(),
                 user.getRoles()
         )).collect(Collectors.toList());
+    }
+
+    public GetUsersDto getUserById(Long id) {
+        Users user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+
+        return new GetUsersDto(
+                user.getId(),
+                user.getName(),
+                user.getEmail(),
+                user.getRoles()
+        );
     }
 }

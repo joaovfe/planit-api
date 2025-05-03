@@ -34,4 +34,10 @@ public class DestinationController {
         destinationService.createDestination(dto);
         return ResponseEntity.ok("Destino criado com sucesso");
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        destinationService.deleteDestination(id);
+        return ResponseEntity.noContent().build();
+    }
 }
