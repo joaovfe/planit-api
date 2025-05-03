@@ -99,4 +99,11 @@ public class DestinationService {
 
         destinationRepository.save(model);
     }
+
+    public void deleteDestination(Long id) {
+        DestinationModel trip = destinationRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Viagem não encontrada"));
+
+        destinationRepository.delete(trip);
+    }
 }

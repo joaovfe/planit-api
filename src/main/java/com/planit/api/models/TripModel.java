@@ -39,7 +39,8 @@ public class TripModel {
 
     @ManyToMany
     @JoinTable(
-            name = "trips_destinations",
+            name = "trip_destinations",
+            schema = "planit",
             joinColumns = @JoinColumn(name = "trip_id"),
             inverseJoinColumns = @JoinColumn(name = "destination_id")
     )
@@ -48,6 +49,7 @@ public class TripModel {
     @ManyToMany
     @JoinTable(
             name = "trip_users",
+            schema = "planit",
             joinColumns = @JoinColumn(name = "trip_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
@@ -55,7 +57,8 @@ public class TripModel {
 
     @ManyToMany
     @JoinTable(
-            name = "trips_baggage_items",
+            name = "trip_baggage_items",
+            schema = "planit",
             joinColumns = @JoinColumn(name = "trip_id"),
             inverseJoinColumns = @JoinColumn(name = "baggage_item_id")
     )

@@ -43,7 +43,7 @@ public class TripsController {
         return ResponseEntity.ok("Viagem atualizada com sucesso");
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         tripService.deleteTrip(id);
         return ResponseEntity.noContent().build();

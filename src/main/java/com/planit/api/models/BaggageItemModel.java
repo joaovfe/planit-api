@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "baggage_items")
+@Table(name = "baggage_items", schema = "planit")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

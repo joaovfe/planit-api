@@ -41,7 +41,7 @@ public class BaggageItemController {
         return ResponseEntity.ok(updatedBaggageItem);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deleteBaggageItem(@PathVariable Long id) {
         baggageItemService.deleteBaggageItem(id);
         return ResponseEntity.noContent().build();
