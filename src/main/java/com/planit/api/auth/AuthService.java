@@ -6,7 +6,7 @@ import com.planit.api.auth.dtos.RecoveryJwtTokenDto;
 import com.planit.api.auth.dtos.UserReponseDto;
 import com.planit.api.configuration.SecurityConfiguration;
 import com.planit.api.models.Role;
-import com.planit.api.repository.UserRepository;
+import com.planit.api.repositories.UserRepository;
 import com.planit.api.security.JwtTokenService;
 import com.planit.api.models.Users;
 import com.planit.api.security.userdetailimp.UserDetailImpl;
