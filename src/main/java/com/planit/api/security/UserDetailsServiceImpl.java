@@ -1,7 +1,7 @@
 package com.planit.api.security;
 
 
-import com.planit.api.repository.UserRepository;
+import com.planit.api.repositories.UserRepository;
 import com.planit.api.models.Users;
 import com.planit.api.security.userdetailimp.UserDetailImpl;
 import org.springframework.beans.factory.annotation.Autowired;

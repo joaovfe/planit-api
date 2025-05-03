@@ -34,6 +34,9 @@ public class Users {
     @Column(name = "password_hash")
     private String password_hash;
 
+    @ManyToMany(mappedBy = "participants")
+    private List<TripModel> tripsAsParticipant;
+
     @Column(name = "name")
     private String name;
 }

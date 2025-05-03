@@ -1,4 +1,4 @@
-package com.planit.api.repository;
+package com.planit.api.repositories;
 
 import com.planit.api.models.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
