@@ -37,7 +37,10 @@ public class SecurityConfiguration {
 
     // Endpoints que requerem autenticação para serem acessados
     public static final String[] ENDPOINTS_WITH_AUTHENTICATION_REQUIRED = {
-            "/auth/user"
+            "/auth/user",
+            "/viagens/**",
+            "/usuarios/**",
+            "/bagagem/**"
     };
 
     public static final String[] ROLE_ADMIN = {};
@@ -72,7 +75,7 @@ public class SecurityConfiguration {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Collections.singletonList("https://planit-portal.web.app/"));
+        configuration.setAllowedOrigins(Collections.singletonList("http://localhost:5173"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
         configuration.setAllowCredentials(true);
