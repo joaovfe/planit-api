@@ -1,16 +1,15 @@
 package com.planit.api.about;
 
-import com.planit.api.about.dtos.SystemListDto;
-import com.planit.api.models.DestinationModel;
-import com.planit.api.models.SystemModel;
-import com.planit.api.models.TripModel;
-import com.planit.api.repositories.SystemRepository;
-import com.planit.api.trips.dtos.TripListDto;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import com.planit.api.about.dtos.SystemListDto;
+import com.planit.api.models.SystemModel;
+import com.planit.api.repositories.SystemRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
