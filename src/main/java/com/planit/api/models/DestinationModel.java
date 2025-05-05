@@ -15,21 +15,13 @@ public class DestinationModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "destinations_id_seq")
-    private Integer id;
+    private Long id;
 
     private String name;
 
     private String country;
 
     private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "climate_id")
-    private ClimateModel climate;
-
-    @ManyToOne
-    @JoinColumn(name = "best_season_id")
-    private SeasonModel bestSeason;
 
     @ManyToOne
     @JoinColumn(name = "type_id")

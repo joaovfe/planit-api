@@ -14,7 +14,7 @@ public class UsersService {
     @Autowired
     private UserRepository userRepository;
 
-        public List<GetUsersDto> listarUsuarios() {
+        public List<GetUsersDto> getUsers() {
         List<Users> users = userRepository.findAll();
 
         return users.stream().map(user -> new GetUsersDto(
