@@ -9,12 +9,16 @@ com\planit\api\users\dtos\GetUsersDto.class
 com\planit\api\ApiApplication.class
 com\planit\api\repositories\ClimateRepository.class
 com\planit\api\enums\ERoleUser.class
+com\planit\api\repositories\SystemRepository.class
 com\planit\api\trips\dtos\CreateTripDto.class
 com\planit\api\auth\AuthController.class
+com\planit\api\about\AboutService.class
 com\planit\api\models\TripModel$TripModelBuilder.class
 com\planit\api\baggage\dtos\CreateBaggageItemDto.class
 com\planit\api\models\BaggageItemModel.class
+com\planit\api\about\AboutController.class
 com\planit\api\models\Role$RoleBuilder.class
+com\planit\api\models\SystemModel.class
 com\planit\api\destination\DestinationService.class
 com\planit\api\auth\dtos\RecoveryJwtTokenDto.class
 com\planit\api\security\userdetailimp\UserDetailImpl.class
@@ -27,6 +31,7 @@ com\planit\api\models\SeasonModel.class
 com\planit\api\repositories\DestinationRepository.class
 com\planit\api\models\DestinationTypeModel$DestinationTypeModelBuilder.class
 com\planit\api\users\UsersService.class
+com\planit\api\models\SystemModel$SystemModelBuilder.class
 com\planit\api\models\Role.class
 com\planit\api\models\TripModel.class
 com\planit\api\auth\dtos\RecoveryUserDto.class
@@ -38,6 +43,7 @@ com\planit\api\destination\dtos\CreateDestinationDto.class
 com\planit\api\users\UsersController.class
 com\planit\api\baggage\BaggageItemController.class
 com\planit\api\trips\TripsController.class
+com\planit\api\about\dtos\SystemListDto.class
 com\planit\api\auth\AuthService.class
 com\planit\api\configuration\SecurityConfiguration.class
 com\planit\api\trips\TripsService.class
