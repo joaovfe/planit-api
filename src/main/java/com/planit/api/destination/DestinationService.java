@@ -66,4 +66,9 @@ public class DestinationService {
 
                 destinationRepository.delete(trip);
         }
+
+        public DestinationModel getDestinationById(Long id) {
+                return destinationRepository.findById(id)
+                                .orElseThrow(() -> new IllegalArgumentException("Destino não encontrado"));
+        }
 }

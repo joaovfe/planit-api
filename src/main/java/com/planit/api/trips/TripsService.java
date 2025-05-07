@@ -5,6 +5,8 @@ import com.planit.api.trips.dtos.TripListDto;
 import com.planit.api.models.*;
 import com.planit.api.repositories.*;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
@@ -55,16 +57,14 @@ public class TripsService {
         return tripRepository.save(trip);
     }
 
-    public List<TripListDto> listTrips() {
-        List<TripModel> trips = tripRepository.findAll();
-        return trips.stream().map(trip -> new TripListDto(
-                trip.getId(),
-                trip.getName(),
-                trip.getClimatePreference().getName(),
-                trip.getSeason().getName(),
-                trip.getCreatedAt(),
-                trip.getDestinations().stream().map(DestinationModel::getName).collect(Collectors.toList())
-        )).collect(Collectors.toList());
+      public List<TripModel> listTrips(String search, int take, int skip) {
+        var page = search != null && !search.isEmpty()
+                ? tripRepository.findByNameContainingIgnoreCase(search, PageRequest.of(skip / take, take))
+                : tripRepository.findAll(PageRequest.of(skip / take, take));
+
+        List<TripModel> content = page.getContent();
+
+        return content;
     }
 
     public TripListDto getTripById(Long id) {

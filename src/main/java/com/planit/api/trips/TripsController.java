@@ -1,14 +1,27 @@
 package com.planit.api.trips;
 
-import com.planit.api.trips.dtos.CreateTripDto;
-import com.planit.api.trips.dtos.TripListDto;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.planit.api.models.TripModel;
+import com.planit.api.trips.dtos.CreateTripDto;
+import com.planit.api.trips.dtos.TripListDto;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/viagens")
@@ -25,9 +38,23 @@ public class TripsController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TripListDto>> list() {
-        List<TripListDto> trips = tripService.listTrips();
-        return ResponseEntity.ok(trips);
+    public Map<String, Object> list(
+        @RequestParam(required = false, defaultValue = "") String search,
+        @RequestParam(required = false, defaultValue = "10") int take,
+        @RequestParam(required = false, defaultValue = "0") int skip) {
+       List<TripModel> trips = tripService.listTrips(search, take, skip);
+        long total = trips.size();
+
+        int pages = (int) Math.ceil((double) total / take);
+
+        System.out.println(trips);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("data", trips);
+        response.put("total", total);
+        response.put("pages", pages);
+
+        return response;
     }
 
     @GetMapping("/{id}")

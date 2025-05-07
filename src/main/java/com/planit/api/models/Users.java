@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,7 +36,8 @@ public class Users {
     @Column(name = "password_hash")
     private String password_hash;
 
-    @ManyToMany(mappedBy = "participants")
+    @JsonIgnore
+    @OneToMany(mappedBy = "participants")
     private List<TripModel> tripsAsParticipant;
 
     @Column(name = "name")

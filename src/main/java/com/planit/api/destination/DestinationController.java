@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.planit.api.destination.dtos.CreateDestinationDto;
 import com.planit.api.destination.dtos.DestinationDto;
+import com.planit.api.models.DestinationModel;
 
 import lombok.RequiredArgsConstructor;
 
@@ -30,10 +31,17 @@ public class DestinationController {
         return ResponseEntity.ok(result);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody CreateDestinationDto dto) {
         destinationService.updateDestination(id, dto);
         return ResponseEntity.ok("Destino atualizado com sucesso");
+    }
+
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<DestinationModel> getDestination(@PathVariable Long id) {
+        DestinationModel destination = destinationService.getDestinationById(id);
+        return ResponseEntity.ok(destination);
     }
 
     @PostMapping("/novo")
@@ -47,4 +55,6 @@ public class DestinationController {
         destinationService.deleteDestination(id);
         return ResponseEntity.noContent().build();
     }
+
+    
 }
