@@ -1,5 +1,7 @@
 package com.planit.api.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,19 +17,10 @@ public class BaggageItemModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false)
-    private String category;
-
     @ManyToOne
-    @JoinColumn(name = "climate_preference_id", referencedColumnName = "id")
-    private ClimateModel climatePreference;
-
-    @ManyToOne
-    @JoinColumn(name = "season_id", referencedColumnName = "id")
-    private SeasonModel season;
+    @JoinColumn(name = "trip_id", referencedColumnName = "id")
+    @JsonBackReference
+    private TripModel trip;
 
     @Column(length = 1000)
     private String description;

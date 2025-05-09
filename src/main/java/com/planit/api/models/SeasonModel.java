@@ -15,7 +15,7 @@ public class SeasonModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seasons_id_seq")
-    private Integer id;
+    private Long id;
 
     private String name;
 }
