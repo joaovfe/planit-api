@@ -1,10 +1,27 @@
 package com.planit.api.models;
 
-import jakarta.persistence.*;
-import lombok.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -15,52 +32,34 @@ import java.util.List;
 @Table(name = "trips", schema = "planit")
 public class TripModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TRIPS_ID_SEQ")
-    @SequenceGenerator(name = "TRIPS_ID_SEQ", sequenceName = "TRIPS_ID_SEQ", allocationSize = 1, schema = "planit")
-    private Long id;
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TRIPS_ID_SEQ")
+        @SequenceGenerator(name = "TRIPS_ID_SEQ", sequenceName = "TRIPS_ID_SEQ", allocationSize = 1, schema = "planit")
+        private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users user;
+        @ManyToOne
+        @JoinColumn(name = "user_id")
+        private Users user;
 
-    private String name;
+        @ManyToOne
+        @JoinColumn(name = "destination_id")
+        private DestinationModel destination;
 
-    @ManyToOne
-    @JoinColumn(name = "climate_preference_id")
-    private ClimateModel climatePreference;
+        private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "season_id")
-    private SeasonModel season;
+        private LocalDateTime createdAt;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime departureDatetime;
+        @JoinColumn(name = "start_date")
+        private LocalDateTime startDate;
 
-    @ManyToMany
-    @JoinTable(
-            name = "trip_destinations",
-            schema = "planit",
-            joinColumns = @JoinColumn(name = "trip_id"),
-            inverseJoinColumns = @JoinColumn(name = "destination_id")
-    )
-    private List<DestinationModel> destinations;
+        @JoinColumn(name = "end_date")
+        private LocalDateTime endDate;
 
-    @ManyToMany
-    @JoinTable(
-            name = "trip_users",
-            schema = "planit",
-            joinColumns = @JoinColumn(name = "trip_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private List<Users> participants;
+        @ManyToMany
+        @JoinTable(name = "trip_users", schema = "planit", joinColumns = @JoinColumn(name = "trip_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+        private List<Users> participants;
 
-    @ManyToMany
-    @JoinTable(
-            name = "trip_baggage_items",
-            schema = "planit",
-            joinColumns = @JoinColumn(name = "trip_id"),
-            inverseJoinColumns = @JoinColumn(name = "baggage_item_id")
-    )
-    private List<BaggageItemModel> baggageItems;
+        @OneToMany(mappedBy = "trip", fetch = FetchType.EAGER)
+        @JsonManagedReference
+        private List<BaggageItemModel> baggageItems;
 }

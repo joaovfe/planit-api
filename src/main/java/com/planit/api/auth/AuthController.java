@@ -1,14 +1,19 @@
 package com.planit.api.auth;
 
-import com.planit.api.auth.dtos.CreateUserDto;
-import com.planit.api.auth.dtos.LoginUserDto;
-import com.planit.api.auth.dtos.RecoveryJwtTokenDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.planit.api.auth.dtos.LoginUserDto;
+import com.planit.api.auth.dtos.RecoveryJwtTokenDto;
+import com.planit.api.auth.dtos.ResponseUserDto;
 
 @RestController
 @RequestMapping("/auth")
@@ -22,13 +27,6 @@ public class AuthController {
         RecoveryJwtTokenDto token = authService.authenticateUser(loginUserDto);
         return new ResponseEntity<>(token, HttpStatus.OK);
     }
-
-    @PostMapping("/create")
-    public ResponseEntity<Object> createUser(@RequestBody CreateUserDto createUserDto) {
-        authService.createUser(createUserDto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
 
     @GetMapping("/user")
     public ResponseEntity<Object> getUser(@AuthenticationPrincipal UserDetails userDetails) {

@@ -15,7 +15,7 @@ public class ClimateModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "climates_id_seq")
-    private Integer id;
+    private Long id;
 
     private String name;
 }

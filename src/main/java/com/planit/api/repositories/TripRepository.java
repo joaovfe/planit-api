@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TripRepository extends JpaRepository<TripModel, Long> {
     Page<TripModel> findByNameContainingIgnoreCase(String nome, Pageable pageable);
+    boolean existsByUserId(Long userId);
 }
