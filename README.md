@@ -91,31 +91,46 @@ Para rodar os testes automatizados, execute:
 
 ```json
 {
-  "name": "Viagem para o Rio",
-  "user": {
-    "id": 1,
-    "name": "Jonas",
-    "email": "jonas@email.com"
-  },
-  "destination": {
-    "id": 2,
-    "name": "Rio de Janeiro",
-    "country": "Brasil"
-  },
-  "baggageSuggestion": [
-    "Camisa",
-    "Short",
-    "Protetor solar"
-  ],
-  "startDate": "2025-12-01T08:00:00",
-  "endDate": "2025-12-10T18:00:00",
-  "participants": [
-    {
-      "id": 3,
-      "name": "Maria",
-      "email": "maria@email.com"
-    }
-  ]
+    "name": "teste",
+    "user": {
+        "id": 5,
+        "email": "teste@gmail.com",
+        "name": "joao",
+        "hash_password": "",
+        "role_id": 0,
+        "roles": [
+            {
+                "id": 5,
+                "roleName": "ROLE_ADMIN"
+            }
+        ]
+    },
+    "baggageSuggestion": [
+        "Protetor solar e labial",
+        "Repelente de insetos",
+        "Calçados confortáveis para caminhada",
+        "Chapéu ou boné",
+        "Óculos de sol",
+        "Remédios de uso contínuo e kit de primeiros socorros",
+        "Câmera ou celular para fotos"
+    ],
+    "destination": {
+        "id": 5,
+        "description": "Região de fazendas, trilhas e culinária típica no campo.",
+        "name": "Interior de Minas Gerais",
+        "type": {
+            "id": 4,
+            "name": "Campo"
+        }
+    },
+    "participants": [
+        {
+            "id": 5,
+            "name": "joao"
+        }
+    ],
+    "startDate": "2025-05-22T03:00:00.000Z",
+    "endDate": "2025-05-02T03:00:00.000Z"
 }
 ```
 #### ✅ PUT `/viagens/5` — Atualizar nova viagem
