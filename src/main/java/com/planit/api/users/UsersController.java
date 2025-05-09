@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,12 @@ public class UsersController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        usersService.deleteUser(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping
     public ResponseEntity<Map<String, Object>> getUsers(
             @RequestParam(required = false, defaultValue = "") String search,
@@ -54,11 +61,9 @@ public class UsersController {
     @PutMapping("/{id}")
     public ResponseEntity<String> update(@PathVariable Long id, @RequestBody CreateUserDto dto) {
 
-
         usersService.updateUser(id, dto);
         return ResponseEntity.ok("Usuário atualizado com sucesso");
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<GetUsersDto> getUserById(@PathVariable Long id) {
