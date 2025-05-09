@@ -30,7 +30,7 @@ public class UserDetailImpl implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword_hash();
+        return user.getPasswordHash();
     }
 
     @Override

@@ -31,7 +31,8 @@ public class SecurityConfiguration {
 
     public static final String[] ENDPOINTS_WITH_AUTHENTICATION_NOT_REQUIRED = {
             "/auth/login", // url que usaremos para fazer login
-            "/auth/create", // url que usaremos para criar um usuário
+            "/auth/create",
+            "/sobre"// url que usaremos para criar um usuário
 
     };
 
