@@ -1,93 +1,194 @@
-# planit-api
+# 📦 Backend - Projeto PLANIT
 
+Este é o backend do sistema PLANIT, desenvolvido em Java utilizando Spring Boot.
 
+---
 
-## Getting started
+## ✅ Como Rodar o Projeto
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### 🔁 Clone o Repositório
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.com/joaovfe/planit-api.git
-git branch -M main
-git push -uf origin main
+```bash
+git clone https://github.com/joaovfe/planit-api.git
+cd planit-api
 ```
 
-## Integrate with your tools
+---
 
-- [ ] [Set up project integrations](https://gitlab.com/joaovfe/planit-api/-/settings/integrations)
+### 🖥️ Rodando o Backend
 
-## Collaborate with your team
+> Pré-requisitos: **Java 17** + **Lombok**
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+#### ✅ Opção 1: IntelliJ IDEA (recomendado)
 
-## Test and Deploy
+1. Abra o IntelliJ IDEA.
+2. Vá em **File > Open** e selecione a pasta `backend` do projeto.
+3. Aguarde o IntelliJ importar as dependências automaticamente (Maven).
+4. Certifique-se de que o SDK está configurado para **Java 17**.
+5. Vá até a classe `BackendApplication.java` (pacote `com.planit.backend`) e clique em **Run**.
 
-Use the built-in continuous integration in GitLab.
+> 💡 Caso não apareça o botão de "Run", clique com o botão direito sobre a classe e selecione **Run 'ApiApplication'**.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+---
 
-***
+#### ✅ Opção 2: Linha de Comando (Windows/Linux)
 
-# Editing this README
+Acesse a pasta do backend:
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+```bash
+cd backend
+```
 
-## Suggestions for a good README
+- **Windows**:
+```bash
+mvnw.cmd spring-boot:run
+```
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+- **Linux/Mac**:
+```bash
+./mvnw spring-boot:run
+```
 
-## Name
-Choose a self-explaining name for your project.
+---
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## 🧪 Testes
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Para rodar os testes automatizados, execute:
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+```bash
+./mvnw test
+```
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+---
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+## 🔗 Tecnologias
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+- Java 17   
+- Spring Boot
+- Maven
+- Lombok
+### Rotas
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## 📡 Rotas Principais (`/viagens`)
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+### 🧭 Endpoints
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+| Método | Rota                                      | Descrição                                               |
+|--------|-------------------------------------------|----------------------------------------------------------|
+| POST   | `/viagens/novo`                           | Cria uma nova viagem.                                   |
+| GET    | `/viagens`                                | Lista viagens com filtros `search`, `take`, `skip`.     |
+| GET    | `/viagens/{id}`                           | Busca uma viagem pelo ID.                               |
+| PUT    | `/viagens/{id}`                           | Atualiza uma viagem existente.                          |
+| DELETE | `/viagens/{id}`                           | Deleta uma viagem pelo ID.                              |
+| GET    | `/viagens/sugestao`                       | Gera sugestão de viagem com base no usuário logado.     |
+| GET    | `/viagens/baggage-items/{destinationId}`  | Sugere itens de bagagem para o destino informado.       |
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+---
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+### 🔐 Payloads
 
-## License
-For open source projects, say how it is licensed.
+#### ✅ POST `/viagens/novo` — Criar nova viagem
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+```json
+{
+    "name": "teste",
+    "user": {
+        "id": 5,
+        "email": "teste@gmail.com",
+        "name": "joao",
+        "hash_password": "",
+        "role_id": 0,
+        "roles": [
+            {
+                "id": 5,
+                "roleName": "ROLE_ADMIN"
+            }
+        ]
+    },
+    "baggageSuggestion": [
+        "Protetor solar e labial",
+        "Repelente de insetos",
+        "Calçados confortáveis para caminhada",
+        "Chapéu ou boné",
+        "Óculos de sol",
+        "Remédios de uso contínuo e kit de primeiros socorros",
+        "Câmera ou celular para fotos"
+    ],
+    "destination": {
+        "id": 5,
+        "description": "Região de fazendas, trilhas e culinária típica no campo.",
+        "name": "Interior de Minas Gerais",
+        "type": {
+            "id": 4,
+            "name": "Campo"
+        }
+    },
+    "participants": [
+        {
+            "id": 5,
+            "name": "joao"
+        }
+    ],
+    "startDate": "2025-05-22T03:00:00.000Z",
+    "endDate": "2025-05-02T03:00:00.000Z"
+}
+```
+#### ✅ PUT `/viagens/5` — Atualizar nova viagem
+```json
+{
+    "name": "teste",
+    "destination": {
+        "id": 8,
+        "description": "Cidade histórica litorânea com fortes, igrejas e praias.",
+        "name": "Recife",
+        "type": {
+            "id": 1,
+            "name": "Praia"
+        }
+    },
+    "participants": [
+        {
+            "id": 5,
+            "name": "joao"
+        },
+        {
+            "id": 6,
+            "name": "Pedro"
+        }
+    ],
+    "startDate": "2025-05-01T06:00:00.000Z",
+    "endDate": "2025-05-31T06:00:00.000Z",
+    "baggageSuggestion": [
+        "Protetor solar",
+        "Chapéu/Boné",
+        "Óculos de sol",
+        "Roupas leves e confortáveis",
+        "Roupa de banho",
+        "Adaptador de tomada (se necessário)",
+        "Repelente"
+    ],
+    "user": {
+        "id": 5,
+        "email": "teste@gmail.com",
+        "name": "joao",
+        "hash_password": "",
+        "role_id": 0,
+        "roles": [
+            {
+                "id": 5,
+                "roleName": "ROLE_ADMIN"
+            }
+        ]
+    }
+}
+```
+#### ✅ GET `/viagens?search=rio&take=5&skip=0` — Listar as viagens 
+
+#### ✅ DELETE `/viagens/5` — Deletar as viagens
+
+#### ✅ GET `/viagens/baggage-items/{destinationId}` — Sugestão de bagagens pra aquele destino
+
+#### ✅ GET `/viagens/viagens/sugestao` — Sugestão de destino para o usuário cadastro com base nas suas preferências (necessita auth)
+
+## By *João Vitor Figueiredo Espindolola*
+
