@@ -188,6 +188,7 @@ Para rodar os testes automatizados, execute:
 
 #### ✅ GET `/viagens/baggage-items/{destinationId}` — Sugestão de bagagens pra aquele destino
 
+#### ✅ GET `/viagens/viagens/sugestao` — Sugestão de destino para o usuário cadastro com base nas suas preferências (necessita auth)
 
 ## By *João Vitor Figueiredo Espindolola*
 
