@@ -136,30 +136,50 @@ Para rodar os testes automatizados, execute:
 #### ✅ PUT `/viagens/5` — Atualizar nova viagem
 ```json
 {
-  "name": "Viagem para São Paulo",
-  "user": {
-    "id": 1,
-    "name": "Jonas",
-    "email": "jonas@email.com"
-  },
-  "destination": {
-    "id": 4,
-    "name": "São Paulo",
-    "country": "Brasil"
-  },
-  "baggageSuggestion": [
-    "Casaco",
-    "Calça jeans"
-  ],
-  "startDate": "2025-11-15T09:00:00",
-  "endDate": "2025-11-20T20:00:00",
-  "participants": [
-    {
-      "id": 3,
-      "name": "Maria",
-      "email": "maria@email.com"
+    "name": "teste",
+    "destination": {
+        "id": 8,
+        "description": "Cidade histórica litorânea com fortes, igrejas e praias.",
+        "name": "Recife",
+        "type": {
+            "id": 1,
+            "name": "Praia"
+        }
+    },
+    "participants": [
+        {
+            "id": 5,
+            "name": "joao"
+        },
+        {
+            "id": 6,
+            "name": "Pedro"
+        }
+    ],
+    "startDate": "2025-05-01T06:00:00.000Z",
+    "endDate": "2025-05-31T06:00:00.000Z",
+    "baggageSuggestion": [
+        "Protetor solar",
+        "Chapéu/Boné",
+        "Óculos de sol",
+        "Roupas leves e confortáveis",
+        "Roupa de banho",
+        "Adaptador de tomada (se necessário)",
+        "Repelente"
+    ],
+    "user": {
+        "id": 5,
+        "email": "teste@gmail.com",
+        "name": "joao",
+        "hash_password": "",
+        "role_id": 0,
+        "roles": [
+            {
+                "id": 5,
+                "roleName": "ROLE_ADMIN"
+            }
+        ]
     }
-  ]
 }
 ```
 #### ✅ GET `/viagens?search=rio&take=5&skip=0` — Listar as viagens 
@@ -169,6 +189,5 @@ Para rodar os testes automatizados, execute:
 #### ✅ GET `/viagens/baggage-items/{destinationId}` — Sugestão de bagagens pra aquele destino
 
 
-## Grupo
+## By *João Vitor Figueiredo Espindolola*
 
-*João Vitor Figueiredo Espindolola*
