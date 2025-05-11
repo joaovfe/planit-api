@@ -1,4 +1,3 @@
-com\planit\api\auth\dtos\CreateUserDto.class
 com\planit\api\models\DestinationTypeModel.class
 com\planit\api\models\BaggageItemModel$BaggageItemModelBuilder.class
 com\planit\api\trips\dtos\TripListDto.class
@@ -15,6 +14,7 @@ com\planit\api\auth\AuthController.class
 com\planit\api\about\AboutService.class
 com\planit\api\models\TripModel$TripModelBuilder.class
 com\planit\api\baggage\dtos\CreateBaggageItemDto.class
+com\planit\api\GoogleAI\GoogleAIService.class
 com\planit\api\models\BaggageItemModel.class
 com\planit\api\about\AboutController.class
 com\planit\api\models\Role$RoleBuilder.class
@@ -29,7 +29,6 @@ com\planit\api\models\SeasonModel$SeasonModelBuilder.class
 com\planit\api\destination\DestinationController.class
 com\planit\api\models\SeasonModel.class
 com\planit\api\repositories\DestinationRepository.class
-com\planit\api\googleAi\GoogleAIService.class
 com\planit\api\models\DestinationTypeModel$DestinationTypeModelBuilder.class
 com\planit\api\users\UsersService.class
 com\planit\api\models\SystemModel$SystemModelBuilder.class
