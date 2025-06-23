@@ -1,7 +1,10 @@
 package com.planit.api.destination;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.planit.api.models.DestinationFavoriteModel;
+import com.planit.api.models.Users;
 import org.springframework.stereotype.Service;
 
 import com.planit.api.destination.dtos.CreateDestinationDto;
@@ -10,6 +13,7 @@ import com.planit.api.models.DestinationModel;
 import com.planit.api.models.DestinationTypeModel;
 import com.planit.api.repositories.DestinationRepository;
 import com.planit.api.repositories.DestinationTypeRepository;
+import com.planit.api.repositories.DestinationFavoriteRepository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -25,6 +29,7 @@ public class DestinationService {
 
         private final DestinationRepository destinationRepository;
         private final DestinationTypeRepository typeRepository;
+        private final DestinationFavoriteRepository favoriteRepository;
 
         public List<DestinationDto> listDestinations() {
                 List<DestinationModel> destinations = destinationRepository.findAll();
@@ -81,4 +86,56 @@ public class DestinationService {
 
                 return destinationRepository.save(destination);
         }
+
+        @Transactional
+        public String favorite(Long destinationId, Users user) {
+                DestinationModel destination = destinationRepository.findById(destinationId)
+                        .orElseThrow(() -> new IllegalArgumentException("Destino não encontrado"));
+
+                boolean alreadyFavorited = favoriteRepository.existsByUserAndDestination(user, destination);
+
+                if (alreadyFavorited) {
+                        return "Este destino já está favoritado.";
+                }
+
+                DestinationFavoriteModel favorite = DestinationFavoriteModel.builder()
+                        .user(user)
+                        .destination(destination)
+                        .build();
+
+                favoriteRepository.save(favorite);
+
+                destination.setFavoriteCount(
+                        destination.getFavoriteCount() != null ? destination.getFavoriteCount() + 1 : 1
+                );
+                destinationRepository.save(destination);
+
+                return "Destino favoritado com sucesso!";
+        }
+
+        @Transactional
+        public String unfavorite(Long destinationId, Users user) {
+                DestinationModel destination = getDestinationById(destinationId);
+
+                Optional<DestinationFavoriteModel> favoriteOpt = favoriteRepository.findByUserAndDestination(user, destination);
+
+                if (favoriteOpt.isEmpty()) {
+                        return "Este destino não está favoritado por este usuário.";
+                }
+
+                DestinationFavoriteModel favorite = favoriteOpt.get();
+
+                if (!favorite.getUser().getId().equals(user.getId())) {
+                        throw new SecurityException("Você não pode desfavoritar um destino favoritado por outro usuário.");
+                }
+
+                favoriteRepository.delete(favorite);
+
+                Integer currentCount = destination.getFavoriteCount() != null ? destination.getFavoriteCount() : 0;
+                destination.setFavoriteCount(Math.max(0, currentCount - 1));
+                destinationRepository.save(destination);
+
+                return "Destino removido dos favoritos com sucesso!";
+        }
+
 }

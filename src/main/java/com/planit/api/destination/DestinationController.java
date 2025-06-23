@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 import com.planit.api.destination.dtos.CreateDestinationDto;
 import com.planit.api.destination.dtos.DestinationDto;
 import com.planit.api.models.DestinationModel;
+import com.planit.api.security.userdetailimp.UserDetailImpl;
 
 import lombok.RequiredArgsConstructor;
 
@@ -55,6 +57,23 @@ public class DestinationController {
         destinationService.deleteDestination(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/favorite/{id}")
+    public ResponseEntity<String> favorite(@PathVariable Long id,
+                                           @AuthenticationPrincipal UserDetailImpl userDetails) {
+
+        String result = destinationService.favorite(id, userDetails.getUser());
+        return ResponseEntity.ok(result);
+    }
+
+    @DeleteMapping("/favorite/{id}")
+    public ResponseEntity<String> unfavorite(@PathVariable Long id,
+                                             @AuthenticationPrincipal UserDetailImpl userDetails) {
+
+        String result = destinationService.unfavorite(id, userDetails.getUser());
+        return ResponseEntity.ok(result);
+    }
+
 
     
 }
