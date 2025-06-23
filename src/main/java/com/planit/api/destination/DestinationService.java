@@ -71,4 +71,14 @@ public class DestinationService {
                 return destinationRepository.findById(id)
                                 .orElseThrow(() -> new IllegalArgumentException("Destino não encontrado"));
         }
+
+        public DestinationModel getDestinationAndIncrementView(Long id) {
+                DestinationModel destination = getDestinationById(id);
+
+                destination.setViewCount(
+                        destination.getViewCount() != null ? destination.getViewCount() + 1 : 1
+                );
+
+                return destinationRepository.save(destination);
+        }
 }
