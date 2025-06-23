@@ -40,7 +40,7 @@ public class DestinationController {
     
     @GetMapping("/{id}")
     public ResponseEntity<DestinationModel> getDestination(@PathVariable Long id) {
-        DestinationModel destination = destinationService.getDestinationById(id);
+        DestinationModel destination = destinationService.getDestinationAndIncrementView(id);
         return ResponseEntity.ok(destination);
     }
 
