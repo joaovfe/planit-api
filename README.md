@@ -69,7 +69,7 @@ Para rodar os testes automatizados, execute:
 - Lombok
 ### Rotas
 
-## 📡 Rotas Principais (`/viagens`)
+## 📡 Rotas (`/viagens`)
 
 ### 🧭 Endpoints
 
@@ -190,5 +190,22 @@ Para rodar os testes automatizados, execute:
 
 #### ✅ GET `/viagens/viagens/sugestao` — Sugestão de destino para o usuário cadastro com base nas suas preferências (necessita auth)
 
-## By *João Vitor Figueiredo Espindolola*
+---
+
+## 📡 Rotas (`/destino`)
+
+### 🧭 Endpoints
+
+| Método | Rota                                      | Descrição                                               |
+|--------|-------------------------------------------|----------------------------------------------------------|
+| GET    | `/destino`                                | Lista todos os destinos.                                |
+| PUT    | `/destino/update/{id}`                    | Edita um destino.                                       |
+| GET    | `/destino/{id}`                           | Busca um destino pelo ID e acrescenta uma visualização. |
+| POST   | `/destino/novo`                           | Cria um novo destino.                                   |
+| DELETE | `/destino/delete/{id}`                    | Deleta um destino pelo ID.                              |
+| POST   | `/destino/favorite/{id}`                  | Favorita um destino pelo ID.                            |
+| DELETE | `/destino/favorite/{id}`               | Remove o favorito do destino pelo ID.                   |
+
+
+## By *João Vitor Figueiredo Espindolola, Arthur Ghizi e Eduardo Domingos*
 
