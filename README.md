@@ -25,7 +25,7 @@ cd planit-api
 2. Vá em **File > Open** e selecione a pasta `backend` do projeto.
 3. Aguarde o IntelliJ importar as dependências automaticamente (Maven).
 4. Certifique-se de que o SDK está configurado para **Java 17**.
-5. Vá até a classe `BackendApplication.java` (pacote `com.planit.backend`) e clique em **Run**.
+5. Vá até a classe `ApiApplication.java` (pacote `com.planit.planit`) e clique em **Run**.
 
 > 💡 Caso não apareça o botão de "Run", clique com o botão direito sobre a classe e selecione **Run 'ApiApplication'**.
 
@@ -36,7 +36,7 @@ cd planit-api
 Acesse a pasta do backend:
 
 ```bash
-cd backend
+cd planit-api
 ```
 
 - **Windows**:

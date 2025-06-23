@@ -26,4 +26,10 @@ public class DestinationModel {
     @ManyToOne
     @JoinColumn(name = "type_id")
     private DestinationTypeModel type;
+
+    @Column(name = "view_count")
+    private Integer viewCount;
+
+    @Column(name = "favorite_count")
+    private Integer favoriteCount;
 }
