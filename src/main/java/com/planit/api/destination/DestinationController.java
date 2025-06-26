@@ -2,15 +2,10 @@ package com.planit.api.destination;
 
 import java.util.List;
 
+import com.planit.api.destination.dtos.DestinationRankingDto;
+import com.planit.api.enums.EVisualizationType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 import com.planit.api.destination.dtos.CreateDestinationDto;
@@ -39,11 +34,18 @@ public class DestinationController {
         return ResponseEntity.ok("Destino atualizado com sucesso");
     }
 
-    
+
     @GetMapping("/{id}")
     public ResponseEntity<DestinationModel> getDestination(@PathVariable Long id) {
         DestinationModel destination = destinationService.getDestinationAndIncrementView(id);
         return ResponseEntity.ok(destination);
+    }
+
+    @GetMapping("/ranking")
+    public ResponseEntity<List<DestinationRankingDto>> getDestinationsByRanking(
+            @RequestParam(value = "visualizationType", required = false) EVisualizationType visualizationType) {
+        List<DestinationRankingDto> destinations = destinationService.getDestinationsByRanking(visualizationType);
+        return ResponseEntity.ok(destinations);
     }
 
     @PostMapping("/novo")

@@ -42,7 +42,8 @@ public class SecurityConfiguration {
             "/viagens/**",
             "/usuarios/**",
             "/bagagem/**",
-            "/destino/**"
+            "/destino/**",
+            "/destino/ranking"
     };
 
     public static final String[] ROLE_ADMIN = {};

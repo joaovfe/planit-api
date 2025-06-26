@@ -18,10 +18,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -68,7 +68,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "<unknown>",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Jonas/Documents/Projects/projet_arthur_domingos/backend-projeto/backend",
