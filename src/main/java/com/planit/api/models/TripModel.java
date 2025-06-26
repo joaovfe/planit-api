@@ -12,7 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -63,7 +62,4 @@ public class TripModel {
         @OneToMany(mappedBy = "trip", fetch = FetchType.EAGER)
         @JsonManagedReference
         private List<BaggageItemModel> baggageItems;
-
-        @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-        private List<ReviewModel> reviews;
 }
