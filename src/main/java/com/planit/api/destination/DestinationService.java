@@ -3,6 +3,8 @@ package com.planit.api.destination;
 import java.util.List;
 import java.util.Optional;
 
+import com.planit.api.destination.dtos.DestinationRankingDto;
+import com.planit.api.enums.EVisualizationType;
 import com.planit.api.models.DestinationFavoriteModel;
 import com.planit.api.models.Users;
 import org.springframework.stereotype.Service;
@@ -136,6 +138,25 @@ public class DestinationService {
                 destinationRepository.save(destination);
 
                 return "Destino removido dos favoritos com sucesso!";
+        }
+
+        public List<DestinationRankingDto> getDestinationsByRanking(EVisualizationType visualizationType) {
+                List<DestinationRepository.DestinationRankingProjection> projections =
+                        (visualizationType == EVisualizationType.FAVORITE)
+                                ? destinationRepository.findAllWithFavoriteCountRanking()
+                                : destinationRepository.findAllWithViewCountRanking();
+
+                return projections.stream()
+                        .map(p -> new DestinationRankingDto(
+                                p.getId(),
+                                p.getName(),
+                                p.getCountry(),
+                                p.getDescription(),
+                                p.getViewCount(),
+                                p.getFavoriteCount(),
+                                p.getRanking()
+                        ))
+                        .toList();
         }
 
 }
