@@ -69,6 +69,25 @@ Para rodar os testes automatizados, execute:
 - Lombok
 ### Rotas
 
+## 📡 Rota (`/auth`)
+
+### 🧭 Endpoints
+
+| Método | Rota                                      | Descrição                                               |
+|--------|-------------------------------------------|----------------------------------------------------------|
+| POST   | `/auth/login`                           | Fazer autenticação com retorno do token. |
+
+### 🔐 Payloads
+
+**Utilizar esse usuário do exemplo.**
+
+```json
+{
+    "email": "teste@gmail.com",
+    "password": "12345678"
+}
+```
+
 ## 📡 Rotas (`/viagens`)
 
 ### 🧭 Endpoints
@@ -192,20 +211,6 @@ Para rodar os testes automatizados, execute:
 
 ---
 
-## 📡 Rotas (`/destino`)
-
-### 🧭 Endpoints
-
-| Método | Rota                                      | Descrição                                               |
-|--------|-------------------------------------------|----------------------------------------------------------|
-| GET    | `/destino`                                | Lista todos os destinos.                                |
-| PUT    | `/destino/update/{id}`                    | Edita um destino.                                       |
-| GET    | `/destino/{id}`                           | Busca um destino pelo ID e acrescenta uma visualização. |
-| POST   | `/destino/novo`                           | Cria um novo destino.                                   |
-| DELETE | `/destino/delete/{id}`                    | Deleta um destino pelo ID.                              |
-| POST   | `/destino/favorite/{id}`                  | Favorita um destino pelo ID.                            |
-| DELETE | `/destino/favorite/{id}`               | Remove o favorito do destino pelo ID.                   |
-
 ### 📝 Rotas de Avaliações (Reviews)
 
 | Método | Rota                            | Descrição                                               |
@@ -228,6 +233,8 @@ Para rodar os testes automatizados, execute:
 
 ---
 
+### 🔐 Payloads
+
 ### ✅ POST `/viagens/{tripId}/reviews` — Criar nova avaliação
 
 **Requer autenticação.** O usuário deve ser um participante da viagem.
@@ -248,6 +255,27 @@ Para rodar os testes automatizados, execute:
     "comment": "Essa viagem foi incrível, recomendo a todos!"
 }
 ```
+
+---
+
+## 📡 Rotas (`/destino`)
+
+### 🧭 Endpoints
+
+| Método | Rota                                      | Descrição                                               |
+|--------|-------------------------------------------|----------------------------------------------------------|
+| GET    | `/destino`                                | Lista todos os destinos.                                |
+| PUT    | `/destino/update/{id}`                    | Edita um destino.                                       |
+| GET    | `/destino/{id}`                           | Busca um destino pelo ID e acrescenta uma visualização. |
+| POST   | `/destino/novo`                           | Cria um novo destino.                                   |
+| DELETE | `/destino/delete/{id}`                    | Deleta um destino pelo ID.                              |
+| POST   | `/destino/favorite/{id}`                  | Favorita um destino pelo ID.                            |
+| DELETE | `/destino/favorite/{id}`                  | Remove o favorito do destino pelo ID.                   |
+| GET    | `/destino/ranking?visualizationType={VIEW ou FAVORITE}`| Busca todos os destinos ordenados por ranking de visualizações ou favoritos. |                   |
+
+---
+
+
 
 ## By *João Vitor Figueiredo Espindolola, Arthur Ghizi e Eduardo Domingos*
 
