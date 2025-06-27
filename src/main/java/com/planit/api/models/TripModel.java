@@ -66,4 +66,7 @@ public class TripModel {
 
         @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
         private List<ReviewModel> reviews;
+
+        @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+        private List<CommentModel> comments;
 }

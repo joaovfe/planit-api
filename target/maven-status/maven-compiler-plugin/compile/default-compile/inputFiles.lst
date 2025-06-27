@@ -16,6 +16,11 @@ C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\baggage
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\climate\ClimateController.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\climate\ClimateService.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\climate\dtos\ClimateResponseDto.java
+C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\comments\CommentController.java
+C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\comments\CommentService.java
+C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\comments\dtos\CommentResponseDto.java
+C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\comments\dtos\CreateCommentDto.java
+C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\comments\dtos\UpdateCommentDto.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\configuration\exception\ValidationException.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\configuration\SecurityConfiguration.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\country\CountryController.java
@@ -31,6 +36,7 @@ C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\GoogleA
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\GoogleAI\GoogleAIService.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\models\BaggageItemModel.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\models\ClimateModel.java
+C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\models\CommentModel.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\models\CountryModel.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\models\DestinationFavoriteModel.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\models\DestinationModel.java
@@ -44,6 +50,7 @@ C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\models\
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\models\Users.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\repositories\BaggageItemRepository.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\repositories\ClimateRepository.java
+C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\repositories\CommentRepository.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\repositories\CountryRepository.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\repositories\DestinationFavoriteRepository.java
 C:\Users\Valdir\Documents\GitHub\planit-api\src\main\java\com\planit\api\repositories\DestinationRepository.java
