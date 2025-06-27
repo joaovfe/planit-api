@@ -206,6 +206,48 @@ Para rodar os testes automatizados, execute:
 | POST   | `/destino/favorite/{id}`                  | Favorita um destino pelo ID.                            |
 | DELETE | `/destino/favorite/{id}`               | Remove o favorito do destino pelo ID.                   |
 
+### 📝 Rotas de Avaliações (Reviews)
+
+| Método | Rota                            | Descrição                                               |
+|--------|--------------------------------|--------------------------------------------------------|
+| POST   | `/viagens/{tripId}/reviews`    | Cria uma nova avaliação para uma viagem.              |
+| GET    | `/viagens/{tripId}/reviews`    | Lista as avaliações de uma viagem específica.         |
+| PUT    | `/reviews/{reviewId}`          | Atualiza uma avaliação existente (requer ser o autor).|
+| DELETE | `/reviews/{reviewId}`          | Deleta uma avaliação (requer ser o autor).            |
+
+---
+
+### 💬 Rotas de Comentários (Comments)
+
+| Método | Rota                            | Descrição                                               |
+|--------|--------------------------------|--------------------------------------------------------|
+| POST   | `/viagens/{tripId}/comments`   | Cria um novo comentário em uma viagem.                |
+| GET    | `/viagens/{tripId}/comments`   | Lista os comentários de uma viagem específica.        |
+| PUT    | `/comments/{commentId}`        | Atualiza um comentário existente (requer ser o autor).|
+| DELETE | `/comments/{commentId}`        | Deleta um comentário (requer ser o autor).            |
+
+---
+
+### ✅ POST `/viagens/{tripId}/reviews` — Criar nova avaliação
+
+**Requer autenticação.** O usuário deve ser um participante da viagem.
+
+```json
+{
+    "note": 5,
+    "moneySpent": 4200.50
+}
+```
+
+### ✅ POST `/viagens/{tripId}/comments` — Criar novo comentário
+
+**Requer autenticação.** O usuário deve ser um participante da viagem.
+
+```json
+{
+    "comment": "Essa viagem foi incrível, recomendo a todos!"
+}
+```
 
 ## By *João Vitor Figueiredo Espindolola, Arthur Ghizi e Eduardo Domingos*
 
